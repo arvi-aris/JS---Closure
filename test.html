@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Closures</title>
+	</head>
+	<body>
+		<div id="id1" style="border:1px solid black;width:25%; height:35%; min-height:150px;display:inline-block" > 
+		</div>
+		<div id="id2" style="border:1px solid black;width:25%; height:35%; min-height:150px;display:inline-block" > 	
+		</div>
+		<div id="id3" style="border:1px solid black;width:25%; height:35%; min-height:150px;display:inline-block" > 
+		</div>
+	</body>
+	<script>
+			var clickHandler = function(){
+				var count = 0;
+				var handler = function(){
+					count++;
+					return count;
+				};
+				return handler;
+			};
+			var div1 = new clickHandler();
+			var div2 = new clickHandler();
+			var div3 = new clickHandler();
+			var divDom1 = document.getElementById('id1');
+			var divDom2 = document.getElementById('id2');
+			var divDom3 = document.getElementById('id3');
+			divDom1.addEventListener('click',function(){
+				var count = div1();
+				divDom1.innerText = count;
+			});
+			divDom2.addEventListener('click',function(){
+				var count = div2();
+				divDom2.innerText = count;
+			});
+			divDom3.addEventListener('click',function(){
+				var count = div3();
+				divDom3.innerText = count;
+			});
+
+	</script>
+</html>
